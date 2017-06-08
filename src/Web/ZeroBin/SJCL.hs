@@ -14,7 +14,7 @@ module Web.ZeroBin.SJCL (
   encrypt
 ) where
 
-import Crypto.Cipher.AES (AES256)
+import Crypto.Cipher.AES (AES128)
 import Crypto.Cipher.Types (ivAdd, blockSize, cipherInit, ecbEncrypt, ctrCombine, makeIV)
 import Crypto.Error (throwCryptoErrorIO)
 import Crypto.Hash.Algorithms (SHA256(..))
@@ -43,7 +43,7 @@ data Content = Content {
 instance JSON.ToJSON Content where
   toJSON = JSON.genericToJSON JSON.defaultOptions
 
-makeCipher :: ByteString -> IO AES256
+makeCipher :: ByteString -> IO AES128
 makeCipher = throwCryptoErrorIO . cipherInit
 
 -- https://github.com/bitwiseshiftleft/sjcl/blob/master/core/pbkdf2.js
