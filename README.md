@@ -1,5 +1,6 @@
 About
 =====
+
 This is a library and a command-line utility
 to share secrets via ["zerobin"](https://github.com/sametmax/0bin)
 sites like https://paste.ec
@@ -8,21 +9,19 @@ using client-side encryption with [SJCL](https://crypto.stanford.edu/sjcl/).
 This library reimplements encryption part of [SJCL](https://crypto.stanford.edu/sjcl/)
 allowing you to post secrets from Haskell programs and shell scripts.
 
+
 Requirements
 ============
+
 ZeroBin is written in Haskell with [GHC](http://www.haskell.org/ghc/).
 All required Haskell libraries are listed in [zerobin.cabal](zerobin.cabal).
 Use [cabal-install](http://www.haskell.org/haskellwiki/Cabal-Install)
 to fetch and build all pre-requisites automatically.
 
-Installation
-============
-    $ git clone https://github.com/zalora/zerobin.git
-    $ cd zerobin
-    $ cabal install
 
 Command-line utility
 ====================
+
 The command-line utility `zerobin` encrypts text or file,
 post the encrypted data to https://paste.ec and
 prints URI to be shared or error message:
@@ -53,12 +52,11 @@ Type `zerobin --help` to see usage summary:
 
 Hacking
 =======
+
 There is a simple test program in the [./nodejs](./nodejs) directory.
 It uses this library to encrypt a message and original SJCL
 running by [Node.js](https://nodejs.org) to decrypt:
 
-    $ git clone https://github.com/zalora/zerobin.git
-    $ cd zerobin
     $ cabal install -f nodejs --dependencies-only
     $ cabal install -f nodejs --ghc-option="-Werror"
     $ # get nodejs and npm, e. g. on Debian: sudo apt-get install nodejs npm
@@ -66,13 +64,14 @@ running by [Node.js](https://nodejs.org) to decrypt:
     $ ./dist/build/zerobin-nodejs/zerobin-nodejs
     heinrich hertz
 
+
 Features/Bugs/TODOs
 ===================
+
 1. [0bin](https://github.com/sametmax/0bin) supports images,
    `zerobin` can encrypt anything, but only plain text will be decrypted.
-2. "Burn after reading" (`-e once`) really means "burn after two readings",
+2. "Burn after reading" (`-e once`) might mean "burn after two readings",
    because we do not redirect like browser does.
    You can verify your paste before sharing the link ;-)
 3. http://0bin.net does not support `-e week`
-
 
