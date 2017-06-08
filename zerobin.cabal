@@ -15,7 +15,7 @@ cabal-version: >= 1.20
 
 source-repository head
   type: git
-  location: https://github.com/zalora/zerobin.git
+  location: https://github.com/ip1981/zerobin.git
 
 flag nodejs
     description: Build a test program for decrypting with Node.js and SJCL.
