@@ -67,7 +67,7 @@ form Never = "never"
 
 post :: String -> Expiration -> Content -> IO String
 post bin ex ct = do
-  req' <- HTTP.parseUrl $ bin ++ "/paste/create"
+  req' <- HTTP.parseRequest $ bin ++ "/paste/create"
   let req =
         HTTP.urlEncodedBody
           [ (C.pack "expiration", C.pack $ form ex)
