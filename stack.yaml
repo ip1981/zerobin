@@ -1,5 +1,11 @@
-resolver: lts-8.17
+resolver: lts-9.6
+
+install-ghc: false
+skip-ghc-check: true
+system-ghc: true
+
 packages:
+
 - '.'
 
 extra-deps: []
